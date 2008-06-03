@@ -1,0 +1,4 @@
+category: Gnome Web
+requires: cygwin epiphany gdk-pixbuf2 glib2 gtk2-x11 libintl8 libpcre0 libxml2 pango python python-gnomevfs2 python-gobject2 python-gtk2
+sdesc: "Extensions for the GNOME Epiphany web browser"
+ldesc: "Extensions for the GNOME Epiphany web browser"

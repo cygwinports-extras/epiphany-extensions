@@ -1,8 +1,8 @@
---- origsrc/epiphany-extensions-2.22.2/configure.ac	2008-05-26 13:08:15.000000000 -0500
-+++ src/epiphany-extensions-2.22.2/configure.ac	2008-06-02 23:06:43.937500000 -0500
-@@ -365,6 +365,23 @@
- 
- GECKO_DEFINES
+--- origsrc/epiphany-extensions/configure.ac	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/configure.ac	2009-06-25 19:20:00.513633900 -0500
+@@ -239,6 +239,23 @@ if echo "$EXTENSIONS" | egrep '(^| )(rss
+ 	PKG_CHECK_MODULES([DBUS], [dbus-1 >= $DBUS_REQUIRED dbus-glib-1 >= $DBUS_GLIB_REQUIRED])
+ fi
  
 +# *****
 +# Win32
@@ -24,9 +24,9 @@
  # *****************
  # Add warning flags
  # *****************
---- origsrc/epiphany-extensions-2.22.2/extensions/actions/Makefile.am	2008-03-05 13:03:00.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/actions/Makefile.am	2008-06-02 22:29:44.734375000 -0500
-@@ -22,8 +22,11 @@
+--- origsrc/epiphany-extensions/extensions/actions/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/actions/Makefile.am	2009-06-25 19:20:00.516133900 -0500
+@@ -22,8 +22,11 @@ libactionsextension_la_CFLAGS = \
  	$(EPIPHANY_DEPENDENCY_CFLAGS)	\
  	$(AM_CFLAGS)
  
@@ -39,24 +39,24 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/adblock/Makefile.am	2008-03-05 13:03:00.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/adblock/Makefile.am	2008-06-02 23:17:39.906250000 -0500
-@@ -27,10 +27,11 @@
+--- origsrc/epiphany-extensions/extensions/adblock/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/adblock/Makefile.am	2009-06-25 19:20:28.774065700 -0500
+@@ -25,8 +25,11 @@ libadblockextension_la_CFLAGS = \
+ 	$(EPIPHANY_DEPENDENCY_CFLAGS)	\
  	$(AM_CFLAGS)
  
- libadblockextension_la_LIBADD = \
-+	$(EPIPHANY_DEPENDENCY_LIBS)	\
- 	$(PCRE_LIBS)
- 
++libadblockextension_la_LIBADD = \
++	$(EPIPHANY_DEPENDENCY_LIBS)
++
  libadblockextension_la_LDFLAGS = \
 -	-module -avoid-version \
 +	-module -avoid-version $(no_undefined) \
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/auto-reload/Makefile.am	2008-03-05 13:03:00.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/auto-reload/Makefile.am	2008-06-02 22:30:37.031250000 -0500
-@@ -6,8 +6,11 @@
+--- origsrc/epiphany-extensions/extensions/auto-reload/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/auto-reload/Makefile.am	2009-06-25 19:21:13.703502200 -0500
+@@ -6,8 +6,11 @@ libautoreloadextension_la_SOURCES = \
  	ephy-auto-reload-extension.h	\
  	extension.c
  	
@@ -69,9 +69,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/auto-scroller/Makefile.am	2008-03-05 13:02:59.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/auto-scroller/Makefile.am	2008-06-02 22:57:35.156250000 -0500
-@@ -20,10 +20,11 @@
+--- origsrc/epiphany-extensions/extensions/auto-scroller/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/auto-scroller/Makefile.am	2009-06-25 19:20:00.523634100 -0500
+@@ -20,10 +20,11 @@ libautoscrollerextension_la_CFLAGS = \
  	$(EPIPHANY_DEPENDENCY_CFLAGS)	\
  	$(AM_CFLAGS)
  
@@ -85,9 +85,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/certificates/Makefile.am	2008-03-05 13:03:00.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/certificates/Makefile.am	2008-06-02 22:31:15.250000000 -0500
-@@ -18,8 +18,11 @@
+--- origsrc/epiphany-extensions/extensions/certificates/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/certificates/Makefile.am	2009-06-25 19:20:00.527384100 -0500
+@@ -18,8 +18,11 @@ libcertificatesextension_la_CFLAGS = \
  	$(EPIPHANY_DEPENDENCY_CFLAGS)	\
  	$(AM_CFLAGS)
  
@@ -100,9 +100,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/error-viewer/Makefile.am	2008-03-05 13:02:59.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/error-viewer/Makefile.am	2008-06-02 22:31:47.734375000 -0500
-@@ -41,6 +41,7 @@
+--- origsrc/epiphany-extensions/extensions/error-viewer/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/error-viewer/Makefile.am	2009-06-25 19:20:00.528634100 -0500
+@@ -41,6 +41,7 @@ liberrorviewerextension_la_CFLAGS = \
  
  liberrorviewerextension_la_LIBADD = \
  	mozilla/liberrorviewermozilla.la	\
@@ -110,7 +110,7 @@
  	$(MOZILLA_COMPONENT_LIBS)
  
  if HAVE_OPENSP
-@@ -50,7 +51,7 @@
+@@ -50,7 +51,7 @@ liberrorviewerextension_la_LIBADD += \
  endif
  
  liberrorviewerextension_la_LDFLAGS = \
@@ -119,9 +119,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/extensions-manager-ui/Makefile.am	2008-03-05 13:02:59.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/extensions-manager-ui/Makefile.am	2008-06-02 22:32:10.421875000 -0500
-@@ -18,8 +18,11 @@
+--- origsrc/epiphany-extensions/extensions/extensions-manager-ui/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/extensions-manager-ui/Makefile.am	2009-06-25 19:20:00.531134200 -0500
+@@ -18,8 +18,11 @@ libextensionsmanageruiextension_la_CFLAG
  	$(EPIPHANY_DEPENDENCY_CFLAGS)	\
  	$(AM_CFLAGS)
  
@@ -134,9 +134,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/gestures/Makefile.am	2008-03-05 13:03:00.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/gestures/Makefile.am	2008-06-02 22:32:34.390625000 -0500
-@@ -20,8 +20,11 @@
+--- origsrc/epiphany-extensions/extensions/gestures/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/gestures/Makefile.am	2009-06-25 19:20:00.533634200 -0500
+@@ -20,8 +20,11 @@ libgesturesextension_la_CFLAGS = \
  	$(EPIPHANY_DEPENDENCY_CFLAGS)	\
  	$(AM_CFLAGS)
  
@@ -149,19 +149,25 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
   
---- origsrc/epiphany-extensions-2.22.2/extensions/greasemonkey/Makefile.am	2008-03-05 13:02:59.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/greasemonkey/Makefile.am	2008-06-02 22:32:54.421875000 -0500
-@@ -24,6 +24,7 @@
+--- origsrc/epiphany-extensions/extensions/greasemonkey/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/greasemonkey/Makefile.am	2009-06-25 19:22:33.043464500 -0500
+@@ -21,11 +21,12 @@ libgreasemonkeyextension_la_CFLAGS = \
+ 	$(AM_CFLAGS)
  
  libgreasemonkeyextension_la_LIBADD = \
- 	mozilla/libgreasemonkeymozilla.la	\
 +	$(EPIPHANY_DEPENDENCY_LIBS)		\
- 	$(MOZILLA_COMPONENT_LIBS)		\
+ 	$(WEBKIT_LIBS)		\
  	$(PCRE_LIBS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/java-console/Makefile.am	2008-03-05 13:02:59.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/java-console/Makefile.am	2008-06-02 22:59:10.906250000 -0500
-@@ -21,10 +21,11 @@
+ libgreasemonkeyextension_la_LDFLAGS = \
+-	-module -avoid-version \
++	-module -avoid-version $(no_undefined) \
+ 	-export-symbols $(top_srcdir)/ephy-extension.symbols \
+ 	$(AM_LDFLAGS)
+ 
+--- origsrc/epiphany-extensions/extensions/java-console/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/java-console/Makefile.am	2009-06-25 19:20:00.539884300 -0500
+@@ -21,10 +21,11 @@ libjavaconsoleextension_la_CFLAGS = \
  
  libjavaconsoleextension_la_LIBADD = \
  	mozilla/libjavaconsolemozilla.la	\
@@ -174,9 +180,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/livehttpheaders/Makefile.am	2008-03-05 13:02:59.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/livehttpheaders/Makefile.am	2008-06-02 22:59:32.843750000 -0500
-@@ -26,8 +26,13 @@
+--- origsrc/epiphany-extensions/extensions/livehttpheaders/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/livehttpheaders/Makefile.am	2009-06-25 19:20:00.542384300 -0500
+@@ -26,8 +26,13 @@ glade_DATA = livehttpheaders-ui.glade
  
  liblivehttpheadersextension_la_LIBADD = \
  	mozilla/liblivehttpheadersmozilla.la	\
@@ -191,9 +197,9 @@
  
  extensioninidir = $(extensiondir)
  extensionini_in_files = livehttpheaders.ephy-extension.in.in
---- origsrc/epiphany-extensions-2.22.2/extensions/page-info/Makefile.am	2008-03-05 13:03:00.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/page-info/Makefile.am	2008-06-02 22:39:17.187500000 -0500
-@@ -24,10 +24,11 @@
+--- origsrc/epiphany-extensions/extensions/page-info/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/page-info/Makefile.am	2009-06-25 19:20:00.544884400 -0500
+@@ -24,10 +24,11 @@ libpageinfoextension_la_CFLAGS = \
  
  libpageinfoextension_la_LIBADD = \
  	mozilla/libpageinfomozilla.la	\
@@ -206,9 +212,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/permissions/Makefile.am	2008-03-05 13:03:00.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/permissions/Makefile.am	2008-06-02 22:39:42.843750000 -0500
-@@ -18,8 +18,11 @@
+--- origsrc/epiphany-extensions/extensions/permissions/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/permissions/Makefile.am	2009-06-25 19:20:00.546134400 -0500
+@@ -18,8 +18,11 @@ libpermissionsextension_la_CFLAGS = \
  	$(EPIPHANY_DEPENDENCY_CFLAGS)	\
  	$(AM_CFLAGS)
  
@@ -221,9 +227,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/push-scroller/Makefile.am	2008-03-05 13:03:00.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/push-scroller/Makefile.am	2008-06-02 22:59:55.109375000 -0500
-@@ -19,10 +19,11 @@
+--- origsrc/epiphany-extensions/extensions/push-scroller/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/push-scroller/Makefile.am	2009-06-25 19:20:00.548634400 -0500
+@@ -19,10 +19,11 @@ libpushscrollerextension_la_CFLAGS = \
  	$(EPIPHANY_DEPENDENCY_CFLAGS)	\
  	$(AM_CFLAGS)
  
@@ -237,9 +243,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/rss/Makefile.am	2008-03-05 13:03:00.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/rss/Makefile.am	2008-06-02 22:40:51.453125000 -0500
-@@ -20,8 +20,12 @@
+--- origsrc/epiphany-extensions/extensions/rss/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/rss/Makefile.am	2009-06-25 19:20:00.551134500 -0500
+@@ -20,8 +20,12 @@ librssextension_la_CFLAGS = \
  	$(DBUS_CFLAGS) \
  	$(AM_CFLAGS)
  
@@ -253,9 +259,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/sample/Makefile.am	2008-03-05 13:02:59.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/sample/Makefile.am	2008-06-02 22:51:11.843750000 -0500
-@@ -16,8 +16,11 @@
+--- origsrc/epiphany-extensions/extensions/sample/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/sample/Makefile.am	2009-06-25 19:20:00.553634500 -0500
+@@ -16,8 +16,11 @@ libsampleextension_la_CFLAGS = \
  	$(EPIPHANY_DEPENDENCY_CFLAGS)	\
  	$(AM_CFLAGS)
  
@@ -268,24 +274,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/sample-mozilla/Makefile.am	2008-03-05 13:02:59.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/sample-mozilla/Makefile.am	2008-06-02 22:50:42.984375000 -0500
-@@ -21,10 +21,11 @@
- 
- libsamplemozillaextension_la_LIBADD = \
- 	mozilla/libsamplemozillamozilla.la	\
-+	$(EPIPHANY_DEPENDENCY_LIBS)		\
- 	$(MOZILLA_COMPONENT_LIBS)
- 
- libsamplemozillaextension_la_LDFLAGS = \
--	-module -avoid-version \
-+	-module -avoid-version $(no_undefined) \
- 	-export-symbols $(top_srcdir)/ephy-extension.symbols \
- 	$(AM_LDFLAGS)
- 
---- origsrc/epiphany-extensions-2.22.2/extensions/select-stylesheet/Makefile.am	2008-03-05 13:03:00.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/select-stylesheet/Makefile.am	2008-06-02 22:51:29.390625000 -0500
-@@ -23,10 +23,11 @@
+--- origsrc/epiphany-extensions/extensions/select-stylesheet/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/select-stylesheet/Makefile.am	2009-06-25 19:20:00.556134600 -0500
+@@ -23,10 +23,11 @@ libselectstylesheetextension_la_CFLAGS =
  
  libselectstylesheetextension_la_LIBADD = \
  	mozilla/libselectstylesheetmozilla.la	\
@@ -298,9 +289,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/sidebar/Makefile.am	2008-03-05 13:03:00.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/sidebar/Makefile.am	2008-06-02 22:54:58.421875000 -0500
-@@ -22,8 +22,11 @@
+--- origsrc/epiphany-extensions/extensions/sidebar/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/sidebar/Makefile.am	2009-06-25 19:20:00.558634600 -0500
+@@ -22,8 +22,11 @@ libsidebarextension_la_CFLAGS = \
  	$(EPIPHANY_DEPENDENCY_CFLAGS)	\
  	$(AM_CFLAGS)
  
@@ -313,9 +304,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/smart-bookmarks/Makefile.am	2008-03-05 13:03:00.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/smart-bookmarks/Makefile.am	2008-06-02 22:56:21.390625000 -0500
-@@ -21,10 +21,11 @@
+--- origsrc/epiphany-extensions/extensions/smart-bookmarks/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/smart-bookmarks/Makefile.am	2009-06-25 19:20:00.561134600 -0500
+@@ -21,10 +21,11 @@ libsmartbookmarksextension_la_CFLAGS = \
  
  libsmartbookmarksextension_la_LIBADD =	\
  	$(top_builddir)/extensions/smart-bookmarks/mozilla/libsbmozilla.la	\
@@ -328,9 +319,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/tab-groups/Makefile.am	2008-03-05 13:02:59.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/tab-groups/Makefile.am	2008-06-02 22:56:45.937500000 -0500
-@@ -17,8 +17,11 @@
+--- origsrc/epiphany-extensions/extensions/tab-groups/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/tab-groups/Makefile.am	2009-06-25 19:20:00.563634700 -0500
+@@ -17,8 +17,11 @@ libtabgroupsextension_la_CFLAGS = \
  	$(EPIPHANY_DEPENDENCY_CFLAGS)	\
  	$(AM_CFLAGS)
  
@@ -343,9 +334,9 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
---- origsrc/epiphany-extensions-2.22.2/extensions/tab-states/Makefile.am	2008-03-05 13:03:00.000000000 -0600
-+++ src/epiphany-extensions-2.22.2/extensions/tab-states/Makefile.am	2008-06-02 22:57:05.156250000 -0500
-@@ -16,8 +16,11 @@
+--- origsrc/epiphany-extensions/extensions/tab-states/Makefile.am	2009-06-25 19:11:14.000000000 -0500
++++ src/epiphany-extensions/extensions/tab-states/Makefile.am	2009-06-25 19:20:00.566134700 -0500
+@@ -16,8 +16,11 @@ libtabstatesextension_la_CFLAGS = \
  	$(EPIPHANY_DEPENDENCY_CFLAGS)	\
  	$(AM_CFLAGS)
  

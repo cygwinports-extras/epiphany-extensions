@@ -319,6 +319,21 @@
  	-export-symbols $(top_srcdir)/ephy-extension.symbols \
  	$(AM_LDFLAGS)
  
+--- origsrc/epiphany-extensions-2.27.4/extensions/soup-fly/Makefile.am	2009-07-01 05:57:15.000000000 -0500
++++ src/epiphany-extensions-2.27.4/extensions/soup-fly/Makefile.am	2009-09-08 22:15:39.026424200 -0500
+@@ -18,8 +18,11 @@ libsoupflyextension_la_CFLAGS = \
+ 	$(EPIPHANY_DEPENDENCY_CFLAGS)	\
+ 	$(AM_CFLAGS)
+ 
++libsoupflyextension_la_LIBADD = \
++	$(EPIPHANY_DEPENDENCY_LIBS)
++
+ libsoupflyextension_la_LDFLAGS = \
+-	-module -avoid-version \
++	-module -avoid-version -no-undefined \
+ 	-export-symbols $(top_srcdir)/ephy-extension.symbols \
+ 	$(AM_LDFLAGS)
+ 
 --- origsrc/epiphany-extensions/extensions/tab-groups/Makefile.am	2009-06-25 19:11:14.000000000 -0500
 +++ src/epiphany-extensions/extensions/tab-groups/Makefile.am	2009-06-25 19:20:00.563634700 -0500
 @@ -17,8 +17,11 @@ libtabgroupsextension_la_CFLAGS = \

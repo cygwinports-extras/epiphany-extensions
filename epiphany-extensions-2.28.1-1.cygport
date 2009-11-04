@@ -1,0 +1,5 @@
+inherit gnome2
+
+DESCRIPTION="Extensions for the Epiphany web browser"
+
+PATCH_URI="2.27.4-no-undefined.patch"

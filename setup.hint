@@ -1,4 +1,4 @@
 category: Gnome Web
-requires: epiphany libgcc1 libgdk_pixbuf2.0_0 libglib2.0_0 libgtk2.0_0 libintl8 libpango1.0_0 libsoup2.4_1 libwebkit1.0_2 libxml2
+requires: epiphany libdbus-glib_1_2 libgcc1 libgdk_pixbuf2.0_0 libglib2.0_0 libgtk2.0_0 libintl8 libpango1.0_0 libsoup2.4_1 libwebkit1.0_2 libxml2
 sdesc: "Extensions for the GNOME Epiphany web browser"
 ldesc: "Extensions for the GNOME Epiphany web browser"

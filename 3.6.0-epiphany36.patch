@@ -1,0 +1,51 @@
+--- origsrc/epiphany-extensions-3.6.0/extensions/actions/ephy-actions-extension.c	2012-04-03 04:24:58.000000000 -0500
++++ src/epiphany-extensions-3.6.0/extensions/actions/ephy-actions-extension.c	2012-12-21 04:13:15.128319100 -0600
+@@ -457,7 +457,7 @@ ephy_actions_extension_document_popup_cb
+ {
+ 	guint context;
+ 	EphyEmbed *embed;
+-	char *url;
++	const char *url;
+ 	ActionData *action_data;
+ 
+ 	action_data = g_object_get_data (G_OBJECT (action), ACTION_DATA_KEY);
+@@ -479,9 +479,8 @@ ephy_actions_extension_document_popup_cb
+ 	}
+ 
+ 	embed = ephy_embed_container_get_active_child (EPHY_EMBED_CONTAINER (window));
+-	url = ephy_web_view_get_location (ephy_embed_get_web_view (embed), TRUE);
++	url = ephy_web_view_get_address (ephy_embed_get_web_view (embed));
+ 	ephy_actions_extension_run_action (action, window, url);
+-	g_free (url);
+ }
+ 
+ static void
+--- origsrc/epiphany-extensions-3.6.0/extensions/rss/rss-ui.c	2012-04-03 04:24:58.000000000 -0500
++++ src/epiphany-extensions-3.6.0/extensions/rss/rss-ui.c	2012-12-21 04:14:04.546145700 -0600
+@@ -431,15 +431,15 @@ rss_ui_populate_store (RssUI *dialog)
+ {
+ 	RssUIPrivate *priv = dialog->priv;
+ 	FeedSelectionDecision decision = { FALSE, FALSE, NULL };
+-	char *location;
++	const char *location;
+ 
+ 	if (priv->embed == NULL) return;
+ 
+ 	/* We start populating the list, and try to select as much as possible
+ 	 * avoiding duplicate feeds
+ 	 */
+-	location = ephy_web_view_get_location
+-			(ephy_embed_get_web_view (priv->embed), TRUE);
++	location = ephy_web_view_get_address
++			(ephy_embed_get_web_view (priv->embed));
+ 	decision.hostname = g_strdup (ephy_string_get_host_name (location));
+ 
+ 	/* Fill the store, and select the appropriate feeds */
+@@ -449,7 +449,6 @@ rss_ui_populate_store (RssUI *dialog)
+ 				(GtkTreeModelForeachFunc) rss_ui_select_feeds,
+ 				&decision);
+ 
+-	g_free (location);
+ 	g_free (decision.hostname);
+ }
+ 

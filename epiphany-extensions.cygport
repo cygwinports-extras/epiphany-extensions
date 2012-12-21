@@ -1,0 +1,11 @@
+inherit gnome2
+
+NAME="epiphany-extensions"
+VERSION=3.6.0
+RELEASE=1
+CATEGORY="GNOME Web"
+SUMMARY="Extensions for the GNOME Epiphany web browser"
+DESCRIPTION="Extensions for the GNOME Epiphany web browser"
+
+PATCH_URI="3.0-no-undefined.patch
+           3.6.0-epiphany36.patch"

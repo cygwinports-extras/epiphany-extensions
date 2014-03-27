@@ -8,4 +8,8 @@ SUMMARY="Extensions for the GNOME Epiphany web browser"
 DESCRIPTION="Extensions for the GNOME Epiphany web browser"
 
 PATCH_URI="3.0-no-undefined.patch
+           3.6.0-Wmissing-protos.patch
            3.6.0-epiphany36.patch"
+
+# do not use deprecation flags
+CYGCONF_ARGS="--disable-maintainer-mode"
